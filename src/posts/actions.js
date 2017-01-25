@@ -98,7 +98,7 @@ export const loadPostComments = (postId) => {
         dispatch(postCommentsSuccess(postId, data));
       })
       .catch(({message}) => {
-        dispatch(postsFailure(message));
+        dispatch(postCommentsFailure(message));
       });
   }
 };

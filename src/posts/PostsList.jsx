@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import PostsListItem from './PostsListItem';
+import History from './History';
 
 class PostsList extends React.Component {
   componentDidMount() {
@@ -26,11 +27,15 @@ class PostsList extends React.Component {
   }
   render () {
     const count = this.props.posts.length;
-
+    const isFetching = this.props.isFetching;
+    const list = count > 0 ? this.renderPosts() : this.renderPlaceholder();
     return (
       <div>
         <h2>Posts</h2>
-        {count > 0 ? this.renderPosts() : this.renderPlaceholder()}
+        <History></History>
+        {isFetching ? (
+          <p>Loading...</p>
+        ) : list}
       </div>
     );
   }

@@ -6,6 +6,8 @@ import {
   POST_COMMENTS_SUCCESS
 } from './actions';
 
+import undoable, { includeAction } from 'redux-undo'
+
 const post = (state = {}, action) => {
   switch (action.type) {
     case POST_COMMENTS_SUCCESS:
@@ -45,4 +47,8 @@ const posts = (state = [], action) => {
   }
 };
 
-export default posts;
+const undoablePosts = undoable(posts, {
+  filter: includeAction([UPDATE_POST, REMOVE_POST])
+});
+
+export default undoablePosts;

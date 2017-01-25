@@ -6,7 +6,7 @@ import {browserHistory} from 'react-router';
 const mapStateToProps = (state, ownProps) => {
   const id = parseInt(ownProps.params.id, 10);
   return {
-    initialValues: state.posts.find((post) => (post.id === id))
+    initialValues: state.posts.present.find((post) => (post.id === id))
   };
 };
 

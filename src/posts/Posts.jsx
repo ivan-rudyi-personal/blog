@@ -4,7 +4,8 @@ import {loadPosts, removePost, togglePostComments, loadPostComments} from './act
 
 const mapStateToProps = (state) => {
   return {
-    posts: state.posts
+    posts: state.posts.present,
+    isFetching: state.pagination.posts.isFetching
   };
 };
 
