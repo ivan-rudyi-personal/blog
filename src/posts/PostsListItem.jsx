@@ -29,9 +29,11 @@ class PostsListItem extends React.Component {
             {areCommentsVisible ? 'Hide comments' : 'Show comments'}
           </a>
         </div>
-        {comments && areCommentsVisible && (
-          <CommentsList comments={comments} />
-        )}
+        <div className="ml-4">
+          {comments && areCommentsVisible && (
+            <CommentsList comments={comments} />
+          )}
+        </div>
       </div>
     );
   }
